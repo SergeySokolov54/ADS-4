@@ -15,7 +15,7 @@ int sorted(int* arr, int size) {
 }
 
 int countPairs1(int *arr, int len, int value) {
-  sorted(arr,len);
+  sorted(arr, len);
     int k = 0;
     for (int i = 0; i < len - 1; i++) {
         for (int j = i + 1; j < len; j++) {
@@ -55,11 +55,9 @@ int cbinsearch(int* arr, int size, int value) {
         k++;
         if (arr[c] > value) {
             c /= 2;
-        }
-        else if (arr[c] < value) {
+        } else if (arr[c] < value) {
             c += c / 2;
-        }
-        else if (arr[c] == value) {
+        } else if (arr[c] == value) {
             int a = 1;
             for (int i = c - 1; arr[i] == value; i--) {
                 a += 1;
