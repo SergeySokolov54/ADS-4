@@ -76,10 +76,16 @@ int* promejDiapazon(int* arr, int start, int end) {
 }
 
 int countPairs3(int *arr, int len, int value) {
-  sorted(arr, len);
-    int k = 1;
-    for (int i = 0; i < len; i++) {
-        k += cbinsearch(promejDiapazon(arr, i+1, len), len - i, value - arr[i]);
+    sorted(arr, len);
+    int i = 0;
+    int k = 0;
+    int err = 0;
+    for (i = 0; arr[i] < value / 2; i++) {
+        k += cbinsearch(arr + i + 1, len - i - 1, value - arr[i]);
     }
-    return k/2;
+    for (i = 0; arr[i] == value / 2; i++) {
+        err += cbinsearch(arr + i + 1, len - i - 1, value - arr[i]);
+    }
+    err /= 2;
+    return k + err;
 }
