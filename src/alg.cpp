@@ -83,7 +83,7 @@ int* promejDiapazon(int* arr, int start, int end) {
 
 int countPairs3(int *arr, int len, int value) {
   sorted(arr, len);
-    int k = 0;
+    int k = 1;
     for (int i = 0; i < len; i++) {
         k += cbinsearch(promejDiapazon(arr, i+1, len), len - i, value - arr[i]);
     }
