@@ -1,19 +1,4 @@
 // Copyright 2021 NNTU-CS
-
-int sorted(int* arr, int size) {
-    int k = 0;
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                k = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = k;
-            }
-        }
-    }
-    return *arr;
-}
-
 int countPairs1(int *arr, int len, int value) {
   sorted(arr, len);
     int k = 0;
@@ -27,6 +12,7 @@ int countPairs1(int *arr, int len, int value) {
     return k;
 }
 int countPairs2(int *arr, int len, int value) {
+  sorted(arr, len);
   int k = 0;
   for (int i = 0; i< len - 1; i++) {
       for (int j = len - 1; i < j; j--) {
