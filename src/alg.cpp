@@ -54,16 +54,6 @@ int cbinsearch(int* arr, int size, int value) {
     return 0;
 }
 
-int* promejDiapazon(int* arr, int start, int end) {
-    for (int j = 0; j < start - end; j++) {
-        for (int i = start; i < end; i++) {
-            arr[j] = arr[i];
-            break;
-        }
-    }
-    return arr;
-}
-
 int countPairs3(int *arr, int len, int value) {
     int i = 0;
     int k = 0;
