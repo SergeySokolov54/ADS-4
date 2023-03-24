@@ -38,26 +38,32 @@ int countPairs2(int* arr, int len, int value) {
 }
 
 int cbinsearch(int* arr, int size, int value) {
-    int nach = 0;
-    int kon = size - 1;
-    while (nach <= kon) {
-        int promej = nach + (kon - nach) / 2;
-        if (value == arr[promej]) {
-            int k = 0;
-            int err = promej - 1;
-            while (value == arr[promej]) {
-                promej++;
+    int k = 0;
+    int start = 0; 
+    int end = size - 1;
+    int ser = 0;
+
+    while (start <= end) {
+        ser = (start + end) / 2;
+        if (arr[ser] == value) {
+            k++;
+            int l = ser - 1;
+            while (l >= start && arr[l] == value) {
                 k++;
+                l--;
             }
-            while (value == arr[err]) {
-                err--;
+            l = ser + 1;
+            while (l <= end && arr[l] == value) {
                 k++;
+                l++;
             }
             return k;
-        } else if (value < arr[promej]) {
-            kon = promej - 1;
-        } else {
-            nach = promej + 1;
+        }
+        else if (arr[ser] < value) {
+            start = ser + 1;
+        }
+        else if (arr[ser] > value) {
+            end = ser - 1;
         }
     }
     return 0;
