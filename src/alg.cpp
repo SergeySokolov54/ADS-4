@@ -11,11 +11,26 @@ int countPairs1(int* arr, int len, int value) {
 }
 
 int countPairs2(int* arr, int len, int value) {
+    int flag = 0;
+    bool a = arr[len] > value;
+    if (a) {
+        for (int j = len; j > value; j--) {
+            flag = j;
+        }
+    }
     int k = 0;
     for (int i = 0; i < len; i++) {
-        for (int l = len; l > i; l--) {
+        if (a) {
+            for (int l = flag; l > i; l--) {
+                if (arr[i] + arr[l] == value) {
+                    k++;
+                }
+            }
+        } else {
+            for (int l = (len - i); l > i; l--) {
             if (arr[i] + arr[l] == value) {
                 k++;
+                }
             }
         }
     }
